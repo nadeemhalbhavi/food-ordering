@@ -1,11 +1,17 @@
-import classes from "./App.module.css";
+import React from "react";
+// import classes from "./App.module.css";
 import Header from "./components/Layout/Header";
+import Meals from "./components/Meals/Meals";
 
 function App() {
   return (
-    <div className={classes.title}>
-      <Header />
-    </div>
+    <React.Fragment>
+      {" "}
+      <Header />;
+      <main>
+        <Meals />
+      </main>
+    </React.Fragment>
   );
 }
 
