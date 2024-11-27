@@ -1,0 +1,360 @@
+1
+00:00:02,330 --> 00:00:05,150
+So, let's work on the Cart and therefore,
+
+2
+00:00:05,150 --> 00:00:07,710
+of course, we can go to the Cart folder
+
+3
+00:00:07,710 --> 00:00:11,633
+and add a Cart.js file for the Cart component.
+
+4
+00:00:12,650 --> 00:00:16,670
+Now the Cart components should render all the Cart items
+
+5
+00:00:16,670 --> 00:00:19,480
+and, of course, display the total amount.
+
+6
+00:00:19,480 --> 00:00:21,080
+And then, also, give us buttons
+
+7
+00:00:21,080 --> 00:00:24,340
+for leaving the Cart and for ordering,
+
+8
+00:00:24,340 --> 00:00:28,210
+though for this application, as shown in the preview,
+
+9
+00:00:28,210 --> 00:00:31,120
+ordering won't really be a thing.
+
+10
+00:00:31,120 --> 00:00:34,970
+Therefore, here we can add our Cart component function,
+
+11
+00:00:34,970 --> 00:00:38,913
+expect props and export it, like this.
+
+12
+00:00:39,750 --> 00:00:42,900
+And attached, you find a Cart.module.css file
+
+13
+00:00:42,900 --> 00:00:44,923
+with some styling for this Cart.
+
+14
+00:00:47,410 --> 00:00:49,610
+Hence, we can already import
+
+15
+00:00:49,610 --> 00:00:54,310
+classes from './Cart.module.css';
+
+16
+00:00:54,310 --> 00:00:56,683
+and then return the mark-up for the Cart.
+
+17
+00:00:57,560 --> 00:01:00,010
+Now, here, as I said, in this application
+
+18
+00:01:00,010 --> 00:01:02,680
+I wanna render this Cart in a modal.
+
+19
+00:01:02,680 --> 00:01:05,300
+Now, we're going to build this modal in a second though.
+
+20
+00:01:05,300 --> 00:01:07,010
+You can also try this on your own
+
+21
+00:01:07,010 --> 00:01:09,340
+also by using React Portals
+
+22
+00:01:09,340 --> 00:01:11,300
+which is a feature we learned about,
+
+23
+00:01:11,300 --> 00:01:13,710
+but before we are going to do it together
+
+24
+00:01:13,710 --> 00:01:16,713
+I wanna finish the general Cart mark-up.
+
+25
+00:01:17,660 --> 00:01:21,550
+So have a div here, which will later be the modal component,
+
+26
+00:01:21,550 --> 00:01:26,370
+and inside of that div, or inside of that modal then,
+
+27
+00:01:26,370 --> 00:01:30,890
+I wanna render my cartitems, here,
+
+28
+00:01:30,890 --> 00:01:34,490
+and then below that a div with the total amount,
+
+29
+00:01:34,490 --> 00:01:38,570
+and below that a div with the actions for the Cart,
+
+30
+00:01:38,570 --> 00:01:40,613
+so the Close and the Order button.
+
+31
+00:01:41,500 --> 00:01:43,560
+Now, for the cartitems I, again,
+
+32
+00:01:43,560 --> 00:01:45,800
+will add a little helper constant, here,
+
+33
+00:01:45,800 --> 00:01:50,240
+cartItems, where I wanna map all cartItems
+
+34
+00:01:50,240 --> 00:01:53,633
+to cartItem JSX elements.
+
+35
+00:01:54,620 --> 00:01:59,090
+Now at the moment, we, of course, have no cartItems here.
+
+36
+00:01:59,090 --> 00:02:01,020
+So, we'll start with a dummy array
+
+37
+00:02:01,020 --> 00:02:03,500
+which I create inline here,
+
+38
+00:02:03,500 --> 00:02:07,320
+which will hold a cartItem, let's say with an idea of c1,
+
+39
+00:02:07,320 --> 00:02:11,410
+with a name of Sushi,
+
+40
+00:02:11,410 --> 00:02:16,410
+with an amount of two, maybe, and the price of 12.99
+
+41
+00:02:18,860 --> 00:02:19,940
+and for the moment that's it.
+
+42
+00:02:19,940 --> 00:02:23,250
+And we then map this array of objects,
+
+43
+00:02:23,250 --> 00:02:25,210
+which here is just an example.
+
+44
+00:02:25,210 --> 00:02:27,510
+Later, we will get a real object
+
+45
+00:02:27,510 --> 00:02:30,190
+managed through React context.
+
+46
+00:02:30,190 --> 00:02:35,190
+But we will map that item here to a cartItem component
+
+47
+00:02:35,320 --> 00:02:37,070
+which we also don't have yet.
+
+48
+00:02:37,070 --> 00:02:39,660
+So, for the moment I'll just output a list item
+
+49
+00:02:39,660 --> 00:02:41,540
+where I output item.name
+
+50
+00:02:43,190 --> 00:02:46,090
+and then it's these cartItems which are rendered, here,
+
+51
+00:02:46,090 --> 00:02:49,003
+cartItems, like this.
+
+52
+00:02:50,620 --> 00:02:54,390
+And actually, I wanna wrap this in an unordered list
+
+53
+00:02:54,390 --> 00:02:56,850
+so I will, overall,
+
+54
+00:02:56,850 --> 00:03:00,530
+set cartItems = to an unordered list
+
+55
+00:03:02,180 --> 00:03:03,900
+then a opening curly brace
+
+56
+00:03:03,900 --> 00:03:08,900
+around this JavaScript expression, closing curly brace
+
+57
+00:03:09,100 --> 00:03:11,433
+and then closing unordered list item.
+
+58
+00:03:13,410 --> 00:03:15,540
+And I can also already add a class name
+
+59
+00:03:15,540 --> 00:03:17,387
+on that unordered list and set this to
+
+60
+00:03:17,387 --> 00:03:19,730
+{classes['cart-Items']}>{[
+
+61
+00:03:19,730 --> 00:03:21,653
+written like this because of the dash.
+
+62
+00:03:22,550 --> 00:03:25,500
+And that's the cartItems which are being output down there.
+
+63
+00:03:26,560 --> 00:03:31,150
+Now speaking of down there, in that first div, here then,
+
+64
+00:03:31,150 --> 00:03:35,240
+I wanna have a span where I say Total Amount
+
+65
+00:03:35,240 --> 00:03:37,070
+and then below that another span
+
+66
+00:03:37,070 --> 00:03:39,180
+where the actual amount is being output.
+
+67
+00:03:39,180 --> 00:03:44,180
+And for the moment, I'll just hard code 35.62, here,
+
+68
+00:03:44,560 --> 00:03:46,390
+but this is something which will, of course,
+
+69
+00:03:46,390 --> 00:03:49,160
+be derived dynamically later.
+
+70
+00:03:49,160 --> 00:03:53,683
+On that div I will add a class name of classes.total.
+
+71
+00:03:55,190 --> 00:03:58,210
+And then we got that other div with the buttons.
+
+72
+00:03:58,210 --> 00:04:03,210
+This will receive a className of classes.actions
+
+73
+00:04:03,430 --> 00:04:06,970
+and then in there I wanna have two buttons.
+
+74
+00:04:06,970 --> 00:04:09,410
+The first button says Close
+
+75
+00:04:11,480 --> 00:04:15,167
+and I will add a className, here, of classes
+
+76
+00:04:17,200 --> 00:04:21,930
+and then it's button--alt and because of the dashes,
+
+77
+00:04:21,930 --> 00:04:25,663
+again, I'm using this syntax of accessing that property.
+
+78
+00:04:26,620 --> 00:04:30,180
+And then below that I have another button where I say Order
+
+79
+00:04:30,180 --> 00:04:34,793
+and this will receive a className of classes.button.
+
+80
+00:04:35,900 --> 00:04:38,880
+Now later, we will only render the Order button
+
+81
+00:04:38,880 --> 00:04:40,950
+when we have items in the Cart
+
+82
+00:04:40,950 --> 00:04:44,100
+but since we're working with dummy data, only at the moment,
+
+83
+00:04:44,100 --> 00:04:46,483
+we don't need to worry about this right now.
+
+84
+00:04:48,150 --> 00:04:49,860
+Okay, so that's the Cart.
+
+85
+00:04:49,860 --> 00:04:52,630
+Now, as I said, the Cart should not be inside
+
+86
+00:04:52,630 --> 00:04:55,850
+of that div though, but inside of a modal.
+
+87
+00:04:55,850 --> 00:04:59,430
+So, therefore, let's add such a modal wrapper
+
+88
+00:04:59,430 --> 00:05:01,950
+which renders this Cart as an overlay.
+
+89
+00:05:01,950 --> 00:05:06,360
+Next, of course, try it on your own first if you want to
+
+90
+00:05:06,360 --> 00:05:08,710
+and thereafter we're going to do that together.
+

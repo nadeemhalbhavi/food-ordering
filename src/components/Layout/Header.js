@@ -7,11 +7,11 @@ const Header = () => {
   return (
     <React.Fragment>
       <nav className={classes.navbar}>
-        <h1>React Meals</h1>
+        <h1>ReactMeals</h1>
         <div className={classes.carttext}>
           <button className={classes.cart}>
             <RiShoppingCartLine className={classes.carticon} size={34} />
-            Your Cart <span className={classes.Cartnum}>0</span>
+            Your Cart <span className={classes.Cartnum}>3</span>
           </button>
         </div>
       </nav>
